@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BigBasketClone.views.LoginAndSignupPage"
+             xmlns:viewmodel="clr-namespace:BigBasketClone.viewmodels"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodel:LoginAndSignupPageViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Grid>
+            <Grid RowDefinitions="*,*" VerticalOptions="FillAndExpand">
+                <BoxView Grid.Row="0" BackgroundColor="Green"></BoxView>
+                <BoxView Grid.Row="1"  BackgroundColor="Gray"></BoxView>
+            </Grid>
+            <StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <Image HorizontalOptions="Start" Margin="15"  Source="cancel" WidthRequest="20" HeightRequest="20" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="logo" HorizontalOptions="CenterAndExpand"
+                       WidthRequest="80" HeightRequest="80" Margin="0,-20,0,0"></Image>
+                <Grid ColumnDefinitions="*,*"  RowDefinitions="Auto,260" HorizontalOptions="FillAndExpand" Margin="10,0">
+                    <Button Grid.Column="0" HeightRequest="60" Command="{Binding LoginTabCommand}" Text="Login" TextColor="Green" BackgroundColor="White"/>
+                    <Button Grid.Column="1" HeightRequest="60" Command="{Binding SignUpTabCommand}" Text="Signup" Margin="-10,0,0,0" TextColor="White" BackgroundColor="#40FFFFFF"/>
+                    <StackLayout IsVisible="{Binding IsLogin}" Grid.Row="1" Grid.ColumnSpan="2"  Orientation="Vertical" BackgroundColor="White">
+
+                        <Entry Placeholder="Mobile Number /Email Address" Margin="10,0" VerticalOptions="EndAndExpand"/>
+                        <Button BackgroundColor="Salmon" Margin="10,0" VerticalOptions="CenterAndExpand"  Text="Login using OTP" TextColor="White"/>
+                        <Label HorizontalOptions="CenterAndExpand" Margin="10,-15,0,0" FontSize="12" VerticalOptions="StartAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString >
+                                    <Span Text="By Continuing,you agree to our "/>
+                                    <Span Text=" Terms and Conditions " TextColor="SkyBlue" >
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TermsAndConditionsCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span Text=" and "/>
+                                    <Span Text=" privacy policy " TextColor="SkyBlue">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding PriveryCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout IsVisible="{Binding IsSignUp}" Grid.Row="1" Grid.ColumnSpan="2"  Orientation="Vertical" BackgroundColor="White">
+
+                        <Entry Placeholder="Mobile Number" Margin="10,0" VerticalOptions="EndAndExpand"/>
+                        <Button BackgroundColor="Salmon" Margin="10,0" VerticalOptions="CenterAndExpand"  Text="SignUp using OTP" TextColor="White"/>
+                        <Label HorizontalOptions="CenterAndExpand" Margin="10,-15,0,0" FontSize="12" VerticalOptions="StartAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString >
+                                    <Span Text="By Continuing,you agree to our "/>
+                                    <Span Text=" Terms and Conditions " TextColor="SkyBlue" >
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding TermsAndConditionsCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                    <Span Text=" and "/>
+                                    <Span Text=" privacy policy " TextColor="SkyBlue">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding PriveryCommand}"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+           
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
