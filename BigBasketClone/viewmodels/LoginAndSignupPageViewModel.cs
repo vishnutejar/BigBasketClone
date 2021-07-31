@@ -1,10 +1,62 @@
-﻿using System.Windows.Input;
+﻿using BigBasketClone.views;
+using System;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace BigBasketClone.viewmodels
 {
     public class LoginAndSignupPageViewModel : BaseViewModel
     {
+
+        public string _PhoneNumber;
+
+        public string PhoneNumber
+        {
+            get
+            {
+                return _PhoneNumber;
+            }
+            set
+            {
+                _PhoneNumber = value;
+                ValidatePhoneNuber();
+                PropertyChangedEvent("PhoneNumber");
+            }
+        }
+
+        private void ValidatePhoneNuber()
+        {
+            var phnum = PhoneNumber;
+            if (string.IsNullOrEmpty(phnum)) {
+
+                IsLoginEnable = false;
+            }
+            if (phnum.Length >= 10)
+            {
+
+                IsLoginEnable = true;
+            }
+            else {
+
+                IsLoginEnable = false;
+            }
+        }
+
+        public bool _IsLoginEnable;
+        public bool IsLoginEnable
+        {
+            get
+            {
+                return _IsLoginEnable;
+            }
+            set
+            {
+                _IsLoginEnable = value;
+                PropertyChangedEvent("IsLoginEnable");
+            }
+        }
+
+
         private bool islogin;
         public bool IsLogin
         {
@@ -48,6 +100,7 @@ namespace BigBasketClone.viewmodels
             PriveryCommand = new Command(PriveryCommandButton);
             LoginTabCommand = new Command(LoginTabButton);
             SignUpTabCommand = new Command(SignUpTabCommandButton);
+
         }
 
         private void SignUpTabCommandButton(object obj)
@@ -65,6 +118,7 @@ namespace BigBasketClone.viewmodels
         private void PriveryCommandButton(object obj)
         {
             //naviagte Privacy
+            App.Current.MainPage.Navigation.PushAsync(new PrivacyPolicyView());
         }
 
         private void TermsAndConditionsCommandButton(object obj)

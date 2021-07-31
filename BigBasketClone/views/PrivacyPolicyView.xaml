@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:BigBasketClone.viewmodels"
+             x:Class="BigBasketClone.views.PrivacyPolicyView"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <viewmodel:PrivacyAndTermsandconditionsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <WebView HorizontalOptions="CenterAndExpand"  WidthRequest="1000" HeightRequest="1000" VerticalOptions="CenterAndExpand" BackgroundColor="Green">
+                <WebView.Source>
+                    <HtmlWebViewSource Html="{Binding TermsAndConditions}"/>
+                </WebView.Source>
+            </WebView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Button Text="Accept" TextColor="White" BackgroundColor="Blue"/>
+                <Button Text="Cancel" TextColor="White" BackgroundColor="Blue"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
