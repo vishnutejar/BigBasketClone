@@ -128,6 +128,8 @@ namespace BigBasketClone.viewmodels
 
         private void CloseButton(object obj)
         {
+            Shell.Current.FlyoutBehavior = FlyoutBehavior.Flyout;
+
             App.Current.MainPage.Navigation.PopAsync();
         }
     }

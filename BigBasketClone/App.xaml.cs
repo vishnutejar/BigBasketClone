@@ -11,7 +11,8 @@ namespace BigBasketClone
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginAndSignupPage());
+            //MainPage = new NavigationPage(new LoginAndSignupPage());
+            MainPage = new HomePage();
         }
 
         protected override void OnStart()

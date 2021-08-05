@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BigBasketClone.viewmodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,18 @@ namespace BigBasketClone.views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginAndSignupPage : ContentPage
     {
-        public LoginAndSignupPage()
+        public LoginAndSignupPage(string Pagetype)
         {
             InitializeComponent();
+            var viewmodel = this.BindingContext as LoginAndSignupPageViewModel;
+
+            if (Pagetype.Equals("1")) {
+                viewmodel.LoginTabCommand.Execute(null);
+            }
+            else {
+                viewmodel.SignUpTabCommand.Execute(null);
+            }
+            
         }
     }
 }

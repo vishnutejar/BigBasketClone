@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+       xmlns:viewmodels="clr-namespace:BigBasketClone.viewmodels" x:DataType="viewmodels:ShellViewModel"
+       x:Name="shell"
+       x:Class="BigBasketClone.views.HomePage"
+       FlyoutHeaderBehavior="Scroll"
+       
+       >
+    <Shell.FlyoutHeader>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="40" Padding="25" BackgroundColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Button Grid.Row="0" Grid.Column="0" Text="Login" Command="{Binding LoginCommand}" CommandParameter="1" TextColor="White" BackgroundColor="Black" BorderColor="White" BorderWidth="2" CornerRadius="10"/>
+            <Button Grid.Row="0" Grid.Column="1" Text="SignUp" Command="{Binding LoginCommand}" CommandParameter="2" TextColor="White" BackgroundColor="Black" BorderColor="White" BorderWidth="2" CornerRadius="10"/>
+        </Grid>
+    </Shell.FlyoutHeader>
+    <FlyoutItem FlyoutDisplayOptions="AsSingleItem" Title="TabbedPage" Shell.NavBarHasShadow="True" >
+        <ShellContent Title="Home" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Title="Categories" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Title="Search" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Title="MyList" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+        <ShellContent Title="Basket" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
+            <ContentPage>
+
+            </ContentPage>
+        </ShellContent>
+    </FlyoutItem>
+    <ShellContent Title="Home" >
+        <ContentPage>
+
+        </ContentPage>
+    </ShellContent>
+    <ShellContent Title="SmartBasket/My List">
+        <ContentPage>
+
+        </ContentPage>
+    </ShellContent>
+</Shell>
