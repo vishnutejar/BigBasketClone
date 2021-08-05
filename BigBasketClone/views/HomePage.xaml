@@ -4,8 +4,8 @@
        xmlns:viewmodels="clr-namespace:BigBasketClone.viewmodels" x:DataType="viewmodels:ShellViewModel"
        x:Name="shell"
        x:Class="BigBasketClone.views.HomePage"
-       FlyoutHeaderBehavior="Scroll"
        
+       xmlns:pages="clr-namespace:BigBasketClone.views"
        >
     <Shell.FlyoutHeader>
         <Grid ColumnDefinitions="*,*" RowDefinitions="40" Padding="25" BackgroundColor="Black" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
@@ -15,14 +15,10 @@
     </Shell.FlyoutHeader>
     <FlyoutItem FlyoutDisplayOptions="AsSingleItem" Title="TabbedPage" Shell.NavBarHasShadow="True" >
         <ShellContent Title="Home" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
-            <ContentPage>
-
-            </ContentPage>
+            <pages:ListOfProductsPage/>
         </ShellContent>
         <ShellContent Title="Categories" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
-            <ContentPage>
-
-            </ContentPage>
+            <pages:CategoriesPage/>
         </ShellContent>
         <ShellContent Title="Search" Icon="icon" Shell.TabBarTitleColor="Green" Shell.TabBarUnselectedColor="LightGray">
             <ContentPage>

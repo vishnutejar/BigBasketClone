@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BigBasketClone.views.ListOfProductsPage"
+             xmlns:vm="clr-namespace:BigBasketClone.viewmodels"
+            Shell.BackgroundColor="Green" 
+             
+             BackgroundColor="LightGray">
+    <ContentPage.BindingContext>
+        <vm:ListOfProductsPageViewModel/>
+    </ContentPage.BindingContext>
+    <Shell.TitleView >
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" >
+            <Label Text="Sample" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+            <ImageButton Command="{Binding GoToProfileCommand}" BackgroundColor="Transparent" Source="icon" Padding="10" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </Shell.TitleView>
+    <ScrollView>
+      
+        <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical" BackgroundColor="Green" >
+                <Frame Padding="5" Margin="10" >
+                    <SearchBar Margin="-10" BackgroundColor="Transparent"  Placeholder="Search 18000+ products" PlaceholderColor="Black" TextColor="Black"  CancelButtonColor="Black" />
+                </Frame>
+            </StackLayout>
+            <CarouselView ItemsSource="{Binding CarosalProducts}"
+                  IndicatorView="indicatorView"
+                    HeightRequest="200"  >
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout BackgroundColor="PaleVioletRed" >
+                            <Image Source="{Binding ProductImage}" VerticalOptions="CenterAndExpand" HeightRequest="100" Aspect="AspectFit"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="indicatorView"
+                   IndicatorColor="DarkGray"
+                   SelectedIndicatorColor="Gold"
+                   HorizontalOptions="Center" />
+            <Frame BackgroundColor="LightGray" Padding="5" Margin="5" BorderColor="LightGray">
+                <StackLayout Orientation="Vertical">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Label Text="SHOP BY CATEGORY" TextColor="Black" FontSize="25" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
+                        <Image Source="icon" WidthRequest="20" HeightRequest="20" HorizontalOptions="EndAndExpand"/>
+                    </StackLayout>
+                    <CollectionView ItemsSource="{Binding CarosalProducts}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"
+                                Span="3"
+                                VerticalItemSpacing="5"
+                                HorizontalItemSpacing="5" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame Padding="0"  Margin="0" BackgroundColor="Green" CornerRadius="10" BorderColor="Black" >
+                                        <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Vertical" HeightRequest="50" WidthRequest="40">
+                                            <Label Text="Upto" />
+                                            <Label Text="20%" />
+                                            <Label Text="OFF" />
+                                        </StackLayout>
+                                       
+                                        
+                                    </Frame>
+                                    <Image Source="icon" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    <Label Text="Friites  vegetabies"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+               
+            </Frame>
+        </StackLayout>
+        
+    </ScrollView>
+
+</ContentPage>
