@@ -46,4 +46,8 @@
 
         </ContentPage>
     </ShellContent>
+
+    <ShellContent Title="Profile">
+        <pages:ProfilePage/>
+    </ShellContent>
 </Shell>

@@ -4,7 +4,7 @@
              x:Class="BigBasketClone.views.ListOfProductsPage"
              xmlns:vm="clr-namespace:BigBasketClone.viewmodels"
             Shell.BackgroundColor="Green" 
-             
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              BackgroundColor="LightGray">
     <ContentPage.BindingContext>
         <vm:ListOfProductsPageViewModel/>
@@ -13,6 +13,23 @@
         <StackLayout Orientation="Horizontal" VerticalOptions="Center" >
             <Label Text="Sample" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <ImageButton Command="{Binding GoToProfileCommand}" BackgroundColor="Transparent" Source="icon" Padding="10" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+            <xct:BadgeView
+                    BackgroundColor="Red"
+                    Text="1"
+                HeightRequest="30"
+                WidthRequest="30"
+                BorderColor="Pink"
+               
+                BadgePosition="TopRight"
+                    TextColor="White">
+                <StackLayout
+                     HeightRequest="30"
+                WidthRequest="30"
+                    BackgroundColor="LightGray">
+                    <Image Source="logo" Aspect="Fill"  HeightRequest="30"
+                WidthRequest="30"/>
+                </StackLayout>
+            </xct:BadgeView>
         </StackLayout>
     </Shell.TitleView>
     <ScrollView>

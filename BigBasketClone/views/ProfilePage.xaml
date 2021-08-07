@@ -1,12 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BigBasketClone.views.ProfilePage">
+             x:Class="BigBasketClone.views.ProfilePage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <!--<StackLayout>
+            <xct:RangeSlider
+                x:Name="RangeSlider"
+                MaximumValue="10"
+                MinimumValue="-10"
+                StepValue="1"
+                LowerValue="-10"
+                UpperValue="10" />
+            <xct:Shield
+                Subject="chat"
+                Status="on discord"
+                StatusBackgroundColor="SeaGreen"
+                StatusTextColor="White"
+                Margin="2,0" />
+            <StackLayout Padding="10" xct:StateLayout.CurrentState="{Binding CurrentState}" xct:StateLayout.CurrentCustomStateKey="{Binding CustomState}">
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Custom" CustomStateKey="ThisIsACustomState">
+                        <Label Text="Hi, I'm a custom state!" />
+                    </xct:StateView>
+                    <xct:StateView StateKey="Custom" CustomStateKey="ThisIsACustomStateToo">
+                        <Label Text="Hi, I'm a custom state too!" />
+                    </xct:StateView>
+                </xct:StateLayout.StateViews>
+
+                <Label Text="This is the normal state." />
+            </StackLayout>
+
+
+
+        </StackLayout>-->
+        <Grid>
+            <xct:TabView
+                TabStripPlacement="Bottom"
+                TabStripBackgroundColor="Blue"
+                TabStripHeight="60"
+                TabIndicatorColor="Yellow"
+                TabContentBackgroundColor="Yellow">
+
+                <xct:TabViewItem
+                    Icon="triangle.png"
+                    Text="Tab 1"
+                    TextColor="White"
+                    TextColorSelected="Yellow"
+                    FontSize="12">
+                    <Grid 
+                        BackgroundColor="Gray">
+                        <Label
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Text="TabContent1" />
+                    </Grid>
+                </xct:TabViewItem>
+
+                <xct:TabViewItem
+                    Icon="circle.png"
+                    Text="Tab 2"
+                    TextColor="White"
+                    TextColorSelected="Yellow"
+                    FontSize="12">
+                    <xct:UniformGrid >
+                        <BoxView Color="Red" />
+                        <BoxView Color="Yellow" />
+                        <BoxView Color="Orange" />
+                        <BoxView Color="Purple" />
+                        <BoxView Color="Blue" />
+                        <BoxView Color="Green" />
+                        <BoxView Color="LightGreen" />
+                        <BoxView Color="Gray" />
+                        <BoxView Color="Pink" />
+                    </xct:UniformGrid>
+
+                </xct:TabViewItem>
+            </xct:TabView>
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

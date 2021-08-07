@@ -15,6 +15,7 @@ namespace BigBasketClone.views
         public ProfilePage()
         {
             InitializeComponent();
+            
         }
     }
 }

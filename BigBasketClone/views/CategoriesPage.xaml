@@ -1,12 +1,69 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BigBasketClone.views.CategoriesPage">
+             x:Class="BigBasketClone.views.CategoriesPage"
+             xmlns:xct="clr-namespace:Xamarin.CommunityToolkit.UI.Views;assembly=Xamarin.CommunityToolkit"
+>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <xct:Expander Tapped="OnExpanderTapped">
+                <xct:Expander.Header>
+                    <Grid ColumnDefinitions="2*,*,2*">
+                        <Image Source="logo" Grid.Column="0"/>
+                        <Label Grid.Column="1" Text="Frutits  Vegetables" TextColor="Black"/>
+                        <Image Grid.Column="2" Source="logo"/>
+                    </Grid>
+                </xct:Expander.Header>
+                <CollectionView x:Name="lstoffrutits">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="logo" 
+                       Aspect="AspectFill"
+                       HeightRequest="120" 
+                       WidthRequest="120" />
+                                <Label Grid.Column="1"
+                       Text="{Binding Name}"
+                                       FontAttributes="Italic" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+               
+            </xct:Expander>
+            <xct:Expander Tapped="OnExpanderTapped">
+                <xct:Expander.Header>
+                    <Grid ColumnDefinitions="2*,*,2*">
+                        <Image Source="logo" Grid.Column="0"/>
+                        <Label Grid.Column="1" Text="heder2" TextColor="Black"/>
+                        <Image Grid.Column="2" Source="logo"/>
+                    </Grid>
+                </xct:Expander.Header>
+                <CollectionView x:Name="lstoffrutits1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="logo" 
+                       Aspect="AspectFill"
+                       HeightRequest="120" 
+                       WidthRequest="120" />
+                                <Label Grid.Column="1"
+                       Text="{Binding Name}"
+                                       FontAttributes="Italic" />
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </xct:Expander>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
